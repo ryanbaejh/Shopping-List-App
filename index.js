@@ -7,57 +7,17 @@ const appSettings = {
 
 const app = initializeApp(appSettings);
 const database = getDatabase(app);
-const shoppingListInDB = ref(database, "shoppingList");
 
-const inputFieldEl = document.getElementById("input-field");
-const addButtonEl = document.getElementById("add-button");
+const listNameInputField = document.getElementById("list-name-input-field");
+const openCartBtn = document.getElementById("open-cart-btn");
 
-const shoppingList = document.getElementById("shopping-list");
-
-onValue(shoppingListInDB, function(snapshot){
-    if(snapshot.exists()){
-        let listItems = Object.entries(snapshot.val());
-
-        clearList();
-        for (let i = 0; i < listItems.length; i++){
-            let currentItem = listItems[i];
-            let currentItemId = currentItem[0];
-            let currentItemValue = currentItem[1];
-    
-            addItem(currentItem);
-        }
-    }else{
-        shoppingList.innerHTML = "No items here... yet"
+openCartBtn.addEventListener("click", function() {
+    const listName = listNameInputField.value;
+    if (listName) {
+        const newListRef = push(ref(database, "shoppingLists"));
+        const listKey = newListRef.key;
+        newListRef.set({ name: listName });
+        window.location.href = `CartPage.html?list=${listKey}`;
     }
-})
-
-addButtonEl.addEventListener("click", function() {
-    let inputValue = inputFieldEl.value
-    push(shoppingListInDB, inputValue);
-    console.log(inputValue)
-    clearInput();
-})
-
-function addItem(item){
-    let itemID = item[0];
-    let itemVal = item[1];
-    let newEl = document.createElement("li");
-    newEl.textContent = itemVal;
-
-    newEl.addEventListener('click', function(){
-        let exactLocationOfItemInDB = ref(database, `shoppingList/${itemID}`);
-        remove(exactLocationOfItemInDB);
-        console.log("item removed");
-    })
-
-    shoppingList.append(newEl);
-}
-
-function clearInput(){
-    inputFieldEl.value = "";
-}
-
-function clearList(){
-    shoppingList.innerHTML = "";
-}
+});
 
