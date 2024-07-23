@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js"
-import { getDatabase, ref, push, onValue, remove} from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"
+import { getDatabase, ref, push, onValue, remove, get} from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"
 
 const appSettings = {
     databaseURL: "https://realtime-database-ead39-default-rtdb.firebaseio.com/"
@@ -7,12 +7,24 @@ const appSettings = {
 
 const app = initializeApp(appSettings);
 const database = getDatabase(app);
-const shoppingListInDB = ref(database, "shoppingList");
+
+const urlParams = new URLSearchParams(window.location.search);
+const listKey = urlParams.get('list');
+
+const shoppingListInDB = ref(database, `${listKey}/list`);
+const nameRef = ref(database, `${listKey}/name`)
 
 const inputFieldEl = document.getElementById("input-field");
 const addButtonEl = document.getElementById("add-button");
-
 const shoppingList = document.getElementById("shopping-list");
+
+const titleText = document.getElementById("list-name-title")
+
+//Show name of list
+get(nameRef).then((snapshot) => {
+    const listName = snapshot.val();
+    titleText.textContent = listName;
+})
 
 onValue(shoppingListInDB, function(snapshot){
     if(snapshot.exists()){
@@ -49,7 +61,7 @@ function addItem(item){
     newEl.textContent = itemVal;
 
     newEl.addEventListener('click', function(){
-        let exactLocationOfItemInDB = ref(database, `shoppingList/${itemID}`);
+        let exactLocationOfItemInDB = ref(database, `shoppingLists/${listKey}/${itemID}`);
         remove(exactLocationOfItemInDB);
         console.log("item removed");
     })
