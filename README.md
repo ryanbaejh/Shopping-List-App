@@ -1,6 +1,8 @@
 #Shopping Cart Web-App
 
 Add, remove shopping list items. 
+Created for personal use with roomates and friends while also practicing my coding skills. Open for anyone to try. 
+
 Based on a Scrimba course with various extra features added by myself. 
 These include: 
 - URL params to share lists
