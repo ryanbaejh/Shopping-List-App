@@ -9,9 +9,35 @@
         <link rel="manifest" href="/manifest.json">
     </head>
     <body>
-        <div class="container">
-            <input type="text" id="list-name-input-field" placeholder="New Shopping List Name">
-            <button id="open-cart-btn">Open Shopping List</button>
+        <div class="container" id="main-container">
+            <div class="container" id="main-page-container">
+                <button class="main-page-btn" id="open-saved-list-btn">Open Shopping List</button>
+                <button class="main-page-btn" id="create-new-list-btn">Create New List</button>
+                <button class="main-page-btn" id="join-list-button">Join List</button>
+            </div>
+            <div class="container" id="open-list-container">
+                <button class="small-btn" onclick="moveBackPage()">
+                    <img class="back-btn-styling" src="backicon.png">
+                </button>
+                <h1>Your Lists: </h1>
+                <ul id="saved-lists">
+                    
+                </ul>
+            </div>
+            <div class="container" id="create-list-container">
+                <button class="small-btn" onclick="moveBackPage()">
+                    <img class="back-btn-styling" src="backicon.png">
+                </button>
+                <input type="text" id="new-name-input-field" placeholder="New shopping list name">
+                <button id="create-cart-btn">Create Shopping List</button>
+            </div>
+            <div class="container" id="join-list-container">
+                <button class="small-btn" onclick="moveBackPage()">
+                    <img class="back-btn-styling" src="backicon.png">
+                </button>
+                <input type="text" id="list-code-input-field" placeholder="Enter code to join">
+                <button id="join-cart-btn">Join Shopping List</button>
+            </div>
         </div>
         <script src="index.js" type="module"></script>
     </body>

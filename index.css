@@ -14,6 +14,39 @@ html, body {
     margin: 30px auto;
 }
 
+#main-container{
+
+}
+
+#main-page-container{
+    gap: 10px;
+}
+
+.main-page-btn{
+    width: 320px;
+}
+
+#open-list-container{
+    margin: 0;
+    display: none;
+}
+
+#create-list-container{
+    margin: 0;
+    display: none;
+    
+}
+
+#join-list-container{
+    margin: 0;
+    display: none;
+}
+
+#main-container-list-page{
+    
+}
+
+
 h1 {
     text-align: center;
     margin: 0;
@@ -22,28 +55,47 @@ h1 {
 
 p{
     text-align: center;
+    padding-top: 20px;
 }
 
-#add-person-btn{
-    background-color: #DCE1EB;
+.small-btn{
+    background-color: #EEF0F4;
     color: #432000;
     height: 40px;
     padding: 5px;
 }
 
-#share-btn{
+.back-btn-styling{
+    width: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin: 30px; 
+}
+
+#trash-btn-img{
+    width: 20px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    margin: 30px; 
+}
+
+#share-btn-img{
     width: 20px;
     position: fixed;
     bottom: 0;
     right: 0;
-    margin: 10px; 
+    margin: 30px; 
 }
 
 #share-code-page-container{
+    max-width: 320px;
+    margin: 250px auto;
+    height: 130px;
     background-color: #DCE1EB;
     border-radius: 8px;
-
-
+    display: none;
 }
 
 #list-code-display{
@@ -53,6 +105,50 @@ p{
     padding: 15px 0px 15px 0px;
     border-radius: 8px;
     user-select: text;
+}
+
+#leave-or-delete-page-container{
+    max-width: 320px;
+    margin: 250px auto;
+    height: 130px;
+    background-color: #DCE1EB;
+    border-radius: 8px;
+    display: none;
+    flex-direction: column;
+    padding: 20px 0px 30px 0px;
+}
+
+.leave-or-delete-page-btn{
+    width: 200px;
+    margin: 8px auto;
+}
+
+#leave-btn{
+    color: #432000;
+    background-color: #FFFDF8
+}
+
+#warning-page{
+    margin: 250px auto;
+    flex-direction: column;
+    background-color: #DCE1EB;
+    border-radius: 8px;
+    padding: 0px 0px 10px 0px;
+    display: none;
+}
+
+#yes-no-container{
+    margin: auto;
+}
+
+.yes-no-btn{
+    width: 75px;
+    margin: 5px;
+}
+
+#no-btn{
+    color: #432000;
+    background-color: #FFFDF8
 }
 
 img {
@@ -81,19 +177,10 @@ button {
     font-size: 20px;
     text-align: center;
     font-family: 'Rubik', sans-serif;
+    margin-top: 5px;
 }
 
-button:hover{
-    background-color: #432000;
-    cursor: pointer;
-}
-
-ul li:hover{
-    background-color: #FFECC7;
-    cursor: pointer;
-}
-
-ul {
+#shopping-list {
     display: flex;
     flex-wrap: wrap;
     list-style-type: none;
@@ -101,8 +188,7 @@ ul {
     padding: 0;
 }
 
-ul li {
-    
+#shopping-list li {
     background-color: #FFFDF8;
     box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.2);
     padding: 15px;  
@@ -110,5 +196,23 @@ ul li {
     border-radius: 8px;
     flex-grow: 1;
     text-align: center;
-    
 }
+
+#saved-lists{
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    gap: 10px;
+    padding: 0;
+}
+
+#saved-lists li{
+    background-color: #FFFDF8;
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.2);
+    padding: 15px;  
+    font-size: 20px; 
+    border-radius: 8px;
+    flex-grow: 1;
+    text-align: center;
+}
+
