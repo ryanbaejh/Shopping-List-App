@@ -9,7 +9,7 @@ These include:
 - Lists added to local stoarage for easy access
 - Various UI addition to support these added features
 
-Please understand that the database is open for anyone with a link to view so beware of what you put in. 
+Please understand that the database is open for anyone with a link to view and write so beware of what you put in. 
 
 Link to web app: https://slwebapp.netlify.app
 
